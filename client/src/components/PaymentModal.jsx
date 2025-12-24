@@ -8,7 +8,7 @@ const PaymentModal = ({ plan, onClose }) => {
       const token = localStorage.getItem("token");
 
       // 👉 STEP 1: Create Razorpay Order
-      const res = await fetch("http://localhost:3000/api/membership/create-order", {
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}api/membership/create-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const PaymentModal = ({ plan, onClose }) => {
         handler: async function (response) {
 
           // 👉 STEP 2: VERIFY PAYMENT
-          const verifyRes = await fetch("http://localhost:3000/api/membership/verify-payment", {
+          const verifyRes = await fetch(`${import.meta.env.VITE_BASE_URL}api/membership/verify-payment`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

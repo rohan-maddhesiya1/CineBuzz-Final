@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
 
   // axios instance (baseURL points to your server)
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: import.meta.env.VITE_BASE_URL,
     // you can add defaults here like timeout
   });
 

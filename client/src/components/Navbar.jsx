@@ -35,7 +35,7 @@ const Navbar = () => {
     const token = localStorage.getItem("token");
     if (!token) return;
 
-    fetch("http://localhost:3000/api/membership/status", {
+    fetch(`${import.meta.env.VITE_BASE_URL}api/membership/status`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => res.json())
