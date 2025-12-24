@@ -19,7 +19,7 @@ export default function SubscriptionPage() {
 
   // Fetch Plans
   useEffect(() => {
-    fetch("http://localhost:3000/api/membership/plans")
+    fetch(`${import.meta.env.VITE_BASE_URL}api/membership/plans`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) setPlans(data.plans);
@@ -31,7 +31,7 @@ export default function SubscriptionPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:3000/api/membership/create-order", {
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}api/membership/create-order`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export default function SubscriptionPage() {
 
         handler: async function (response) {
 
-          const verify = await fetch("http://localhost:3000/api/membership/verify-payment", {
+          const verify = await fetch(`${import.meta.env.VITE_BASE_URL}api/membership/verify-payment`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
